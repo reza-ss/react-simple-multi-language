@@ -1,0 +1,23 @@
+{
+  "name": "react-simple-multi-language",
+  "version": "1.0.0",
+  "description": "light weight package for building react multi language project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reza-ss/react-simple-multi-language.git"
+  },
+  "peerDependencies":[
+        "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+  ],
+  "author": "reza_ss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reza-ss/react-simple-multi-language/issues"
+  },
+  "homepage": "https://github.com/reza-ss/react-simple-multi-language#readme"
+}
