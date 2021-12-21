@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsc --declaration --emitDeclarationOnly && webpack --progress"
+    "prepublishOnly": "tsc --declaration --emitDeclarationOnly && webpack --progress"
   },
   "keywords": [],
   "author": "",
