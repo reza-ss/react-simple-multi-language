@@ -1,34 +1,32 @@
 {
-    "compilerOptions": {
-      "outDir": "dist",
-      "module": "commonjs",
-      "target": "es5",
-      "lib": ["es6", "dom"],
-      "sourceMap": true,
-      "allowJs": true,
-      "jsx": "react",
-      "moduleResolution": "node",
-      "rootDir": "lib",
-      "noImplicitReturns": true,
-      "noImplicitThis": true,
-      "noImplicitAny": true,
-      "strictNullChecks": true,
-      "declaration": true /* Generates corresponding '.d.ts' file. */,
-      "declarationDir": "./dist",
-      "isolatedModules": true,
-      "esModuleInterop":true
-    },
-    "exclude": [
-      "node_modules",
-      "dist",
-      "scripts",
-      "acceptance-tests",
-      "webpack",
-      "jest",
-      "src/setupTests.ts",
-      "./webpack.config.js"
-    ],
-    "types": [
-      "typePatches"
-    ]
-  }
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "lib",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "isolatedModules": true,
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts",
+    "./webpack.config.js"
+  ],
+  "types": ["typePatches"]
+}
