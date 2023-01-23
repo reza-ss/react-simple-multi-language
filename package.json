@@ -1,13 +1,19 @@
 {
   "name": "react-simple-multi-language",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "prepublishOnly": "tsc --declaration --emitDeclarationOnly && webpack --progress"
+    "prepare": "tsc --declaration --emitDeclarationOnly && webpack --progress"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "translations",
+    "translation",
+    "i18n",
+    "language"
+  ],
   "author": "",
   "license": "ISC",
   "peerDependencies": {
