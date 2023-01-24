@@ -1,12 +1,12 @@
 {
   "name": "react-simple-multi-language",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "light weight package for building react multi language project",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "directory": "https://github.com/reza-ss/react-simple-multi-language"
+    "url": "https://github.com/reza-ss/react-simple-multi-language.git"
   },
   "scripts": {
     "prepare": "tsc --declaration --emitDeclarationOnly && webpack --progress"
