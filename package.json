@@ -1,6 +1,6 @@
 {
   "name": "react-simple-multi-language",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "light weight package for building react multi language project",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
