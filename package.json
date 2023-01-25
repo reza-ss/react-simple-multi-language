@@ -9,7 +9,7 @@
     "url": "https://github.com/reza-ss/react-simple-multi-language.git"
   },
   "scripts": {
-    "prepare": "tsc --declaration --emitDeclarationOnly && webpack --progress"
+    "prepublishOnly": "tsc --declaration --emitDeclarationOnly && webpack --progress"
   },
   "keywords": [
     "react",
