@@ -1,4 +1,4 @@
-declare type LanguageContextType = {
+type LanguageContextType = {
     [key: string]: {
         [key: string]: string;
     };
