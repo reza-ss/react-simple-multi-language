@@ -9,6 +9,18 @@ const getPropertyWithKeyIdentifier = (
     .split(".")
     .reduce((prev, current) => prev[current as keyof typeof ob], ob as string);
 
+const generateCacheId = (
+  id: string,
+  currentLang: string,
+  params?: LanguageContextType
+) =>
+  params
+    ? id +
+      Object.values(params)
+        .map((e) => e[currentLang])
+        .join("-")
+    : "";
+
 const cacheTranslate = () => {
   let cache: { [key: string]: string } = {};
   let translationConfig = languageStore.getState();
@@ -19,7 +31,13 @@ const cacheTranslate = () => {
   });
 
   return (id: string, params?: LanguageContextType) => {
-    if (cache[id]) return cache[id];
+    const cacheId = generateCacheId(
+      id,
+      translationConfig.currentLanguage,
+      params
+    );
+
+    if (cache[cacheId]) return cache[cacheId];
 
     const { currentLanguage, translations } = translationConfig;
     const messages = translations[currentLanguage];
@@ -31,12 +49,13 @@ const cacheTranslate = () => {
     if (!text) return "";
 
     if (params) {
-      cache[id] = Object.keys(params).reduce((prev, current) => {
+      const parsedText = Object.keys(params).reduce((prev, current) => {
         const regex = new RegExp(`{${current}}`, "g");
         return prev.replace(regex, params[current][currentLanguage]);
       }, text);
+      cache[cacheId] = parsedText;
 
-      return cache[id];
+      return parsedText;
     } else {
       return text;
     }
