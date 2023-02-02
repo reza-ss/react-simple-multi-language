@@ -2,7 +2,7 @@ import useSyncExternalStoreExports from "use-sync-external-store/shim/with-selec
 const { useSyncExternalStoreWithSelector } = useSyncExternalStoreExports;
 
 import { languageStore } from "./store";
-import { LanguageContextType } from "./types";
+import { ParamsType } from "./types";
 import { t } from "./utils";
 
 export const useUpdateComponentWhenLanguageChange = () => {
@@ -18,7 +18,7 @@ export const I18nText = ({
   id,
   params,
 }: {
-  params?: LanguageContextType;
+  params?: ParamsType;
   id: string;
 }) => {
   useUpdateComponentWhenLanguageChange();

@@ -1,9 +1,9 @@
-import { LanguageContextType } from "./types";
+import { ParamsType } from "./types";
 export declare const useUpdateComponentWhenLanguageChange: () => {
     currentLanguage: string;
-    translations: LanguageContextType;
+    translations: import("./types").LanguageContextType;
 };
 export declare const I18nText: ({ id, params, }: {
-    params?: LanguageContextType | undefined;
+    params?: ParamsType | undefined;
     id: string;
 }) => string;

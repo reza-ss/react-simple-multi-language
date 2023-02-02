@@ -1,2 +1,2 @@
-import { LanguageContextType } from "./types";
-export declare const t: (id: string, params?: LanguageContextType) => string;
+import { ParamsType } from "./types";
+export declare const t: (id: string, params?: ParamsType) => string;

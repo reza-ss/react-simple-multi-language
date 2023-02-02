@@ -1,5 +1,5 @@
 import { languageStore } from "./store";
-import { LanguageContextType } from "./types";
+import { ParamsType } from "./types";
 
 const getPropertyWithKeyIdentifier = (
   ob: {},
@@ -12,12 +12,12 @@ const getPropertyWithKeyIdentifier = (
 const generateCacheId = (
   id: string,
   currentLang: string,
-  params?: LanguageContextType
+  params?: ParamsType
 ) =>
   params
     ? id +
       Object.values(params)
-        .map((e) => e[currentLang])
+        .map((e) => (typeof e === "string" ? e : e[currentLang]))
         .join("-")
     : "";
 
@@ -30,7 +30,7 @@ const cacheTranslate = () => {
     translationConfig = newConfig;
   });
 
-  return (id: string, params?: LanguageContextType) => {
+  return (id: string, params?: ParamsType) => {
     const cacheId = generateCacheId(
       id,
       translationConfig.currentLanguage,
@@ -51,7 +51,12 @@ const cacheTranslate = () => {
     if (params) {
       const parsedText = Object.keys(params).reduce((prev, current) => {
         const regex = new RegExp(`{${current}}`, "g");
-        return prev.replace(regex, params[current][currentLanguage]);
+
+        const translate =
+          typeof params[current] === "string"
+            ? params[current]
+            : (params[current] as unknown as any)[currentLanguage];
+        return prev.replace(regex, translate);
       }, text);
       cache[cacheId] = parsedText;
 
