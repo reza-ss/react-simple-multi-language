@@ -7,7 +7,10 @@ const getPropertyWithKeyIdentifier = (
 ): string | undefined =>
   key
     .split(".")
-    .reduce((prev, current) => prev[current as keyof typeof ob], ob as string);
+    .reduce(
+      (prev, current) => prev?.[current as keyof typeof ob],
+      ob as string
+    );
 
 const generateCacheId = (
   id: string,
