@@ -71,3 +71,13 @@ const cacheTranslate = () => {
 };
 
 export const t = cacheTranslate();
+
+export const createConstantTranslation = (id: string, params?: ParamsType) => {
+  const tr = {
+    get translation() {
+      return t(id, params);
+    },
+  };
+
+  return tr;
+};

@@ -1,3 +1,4 @@
+import { useDebugValue } from "react";
 import useSyncExternalStoreExports from "use-sync-external-store/shim/with-selector";
 const { useSyncExternalStoreWithSelector } = useSyncExternalStoreExports;
 
@@ -6,12 +7,16 @@ import { ParamsType } from "./types";
 import { t } from "./utils";
 
 export const useUpdateComponentWhenLanguageChange = () => {
-  return useSyncExternalStoreWithSelector(
+  const conf = useSyncExternalStoreWithSelector(
     languageStore.subscribe,
     languageStore.getState,
     languageStore.getState,
     (s) => s
   );
+
+  useDebugValue(conf);
+
+  return conf;
 };
 
 export const I18nText = ({

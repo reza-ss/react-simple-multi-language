@@ -63,8 +63,19 @@ const Title = () => (
           en: "john",
         },
       }}
-    ></I18nText>
+    />
   </h1>
+);
+```
+
+it is easier to pass only a string instead of object if your param does not depend on language:
+
+```jsx
+    <I18nText
+      id="greeting.say_hi"
+      params={
+        name:"john"
+      } />
 );
 ```
 
@@ -127,6 +138,32 @@ function App() {
 
 export default App;
 ```
+
+there is `createConstantTranslation` helper that allows you to create constants:
+
+```jsx
+import { Link } from "react-router-dom";
+import { createConstantTranslation } from "react-simple-multi-language";
+
+export const navbarConfig = [
+  {
+    url: "/",
+    title: createConstantTranslation("nav.home"),
+  },
+  {
+    url: "/products",
+    title: createConstantTranslation("nav.products"),
+  },
+];
+
+export const Navbar = () => {
+  return navbarConfig.map((route) => (
+    <Link to={route.url}>{route.title.translation}</Link>
+  ));
+};
+```
+
+> as you can see in example above `createConstantTranslation` returns an object with a getter that is called `translation` that you must read the translation value from it
 
 ## Contributing
 
