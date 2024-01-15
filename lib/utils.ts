@@ -45,11 +45,11 @@ const cacheTranslate = () => {
     const { currentLanguage, translations } = translationConfig;
     const messages = translations[currentLanguage];
 
-    if (!messages || !Object.keys(messages)?.length) return "";
+    if (!messages || !Object.keys(messages)?.length) return id;
 
     const text = getPropertyWithKeyIdentifier(messages, id);
 
-    if (!text) return "";
+    if (!text) return id;
 
     if (params) {
       const parsedText = Object.keys(params).reduce((prev, current) => {
