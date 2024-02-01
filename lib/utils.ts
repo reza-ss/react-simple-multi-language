@@ -20,7 +20,7 @@ const generateCacheId = (
   params
     ? id +
       Object.values(params)
-        .map((e) => (typeof e === "string" ? e : e[currentLang]))
+        .map((e) => (e ? (typeof e === "string" ? e : e[currentLang]) : "null"))
         .join("-")
     : "";
 
@@ -54,6 +54,8 @@ const cacheTranslate = () => {
     if (params) {
       const parsedText = Object.keys(params).reduce((prev, current) => {
         const regex = new RegExp(`{${current}}`, "g");
+
+        if (!params[current]) return prev;
 
         const translate =
           typeof params[current] === "string"
